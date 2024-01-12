@@ -16,7 +16,7 @@ function photographerTemplate(data) {
 
         const img = document.createElement("img");
         img.setAttribute("src", picture);
-        img.setAttribute("alt", "Photograher profile picture");
+        img.setAttribute("alt", name);
 
         const h2 = document.createElement("h2");
         h2.textContent = name;
@@ -54,7 +54,7 @@ function photographerTemplate(data) {
 
         const userPicture = document.createElement("img");
         userPicture.setAttribute("src", profilePicture);
-        userPicture.setAttribute("alt", "Photograher profile picture");
+        userPicture.setAttribute("alt", name);
 
         return { userPicture, profile };
     }
@@ -66,8 +66,19 @@ function photographerTemplate(data) {
         return processedName;
     }
 
-    function getUserLike() {
-        const likeDiv = document.querySelector(".like-div");
+    function setLikeDiv() {
+        const likesNumbers = document.querySelectorAll(".likes-number");
+
+        let totalLikes = 0;
+        likesNumbers.forEach((node) => {
+            const likeNumber = parseInt(node.textContent);
+            totalLikes += likeNumber;
+        });
+        const totalLikesElement = document.querySelector("#likes");
+
+        totalLikesElement.textContent = totalLikes;
+        const rateElement = document.querySelector("#price");
+        rateElement.textContent = price + "€/jour";
     }
 
     return {
@@ -81,6 +92,7 @@ function photographerTemplate(data) {
         getUserCardDOM,
         getUserHeaderComponent,
         processFirstName,
+        setLikeDiv,
     };
 }
 

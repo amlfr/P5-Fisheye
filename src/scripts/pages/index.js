@@ -1,3 +1,4 @@
+//Fetches and returns the data of all photographers
 async function getPhotographers() {
     const response = await fetch("../../../assets/data/photographers.json");
     const data = await response.json();
@@ -12,6 +13,7 @@ async function displayData(photographers) {
         ".photographer_section"
     );
 
+    //Iterates over the data to generate photographers cards
     photographers.forEach((photographer) => {
         const photographerModel = photographerTemplate(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
@@ -20,7 +22,7 @@ async function displayData(photographers) {
 }
 
 async function init() {
-    // Récupère les datas des photographes
+    //Gets data then displays it
     const photographers = await getPhotographers();
     displayData(photographers);
 }

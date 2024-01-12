@@ -1,9 +1,11 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+const modal = document.getElementById("contact-modal");
+
+function displayContactModal() {
+    modal.showModal();
+    const firstFocus = document.getElementById("firstName");
+    firstFocus.focus();
 }
 
-function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+function closeContactModal() {
+    modal.close();
 }

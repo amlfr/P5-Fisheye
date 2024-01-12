@@ -33,11 +33,15 @@ main {
   border-radius: 50%;
   margin: 0 3.5vw 0 0;
 }
-.photograph-header button {
+.photograph-header .contact-button {
+  padding: 11px;
   width: 11.798vw;
   height: 7vh;
-  padding: 0;
-  font-size: 24px;
+}
+
+button,
+.submit {
+  font-size: 20px;
   font-weight: bold;
   color: white;
   border: none;
@@ -46,22 +50,11 @@ main {
   cursor: pointer;
   transition: all 0.3s;
 }
-.photograph-header button:hover, .photograph-header button:focus {
+button:hover, button:focus,
+.submit:hover,
+.submit:focus {
   background-color: #db8876;
   color: black;
-}
-
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901c1c;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .dropdown-div {
@@ -79,54 +72,237 @@ main {
   border-radius: 5px;
 }
 
-#contact_modal {
-  display: none;
+dialog {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(196, 196, 196, 0.4);
+  border-color: rgba(196, 196, 196, 0.4);
 }
 
-.modal {
+.flex-modal-wrapper,
+.carousel-modal-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact-container {
   border-radius: 5px;
+  width: 46vw;
+  height: 90vh;
   background-color: #db8876;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+  padding: 1.5% 3.5% 0;
 }
-.modal header {
+#contact-container::backdrop {
+  background-color: rgba(209, 19, 19, 0.1529411765);
+}
+#contact-container #header-wrapper-contact {
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
 }
-.modal header img {
+#contact-container #header-wrapper-contact h1 {
+  font-size: 64px;
+  color: black;
+  margin: 0px;
+  width: 60%;
+}
+#contact-container #header-wrapper-contact img {
+  flex: 0;
+  margin-top: 2vh;
+}
+#contact-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 3vh;
+}
+#contact-container form label {
+  color: #312e2e;
+  font-size: 36px;
+}
+#contact-container form input {
+  width: 100%;
+  height: 7vh;
+  border-radius: 5px;
+}
+#contact-container form input::placeholder {
+  font-size: 36px;
+}
+#contact-container form #message-input {
+  height: 16vh;
+}
+#contact-container form #message-input::placeholder {
+  font-size: 36px;
+}
+#contact-container form .submit {
+  margin-top: 3vh;
+  width: 28%;
+}
+#contact-container form .submit:hover, #contact-container form .submit:focus {
+  border: solid black 2px;
+  transition: all 0.3s;
+}
+
+header {
+  justify-content: space-between;
+  width: 100%;
+}
+header img {
   cursor: pointer;
 }
-.modal header h2 {
+header h2 {
   font-size: 64px;
   font-weight: normal;
   text-align: center;
 }
 
-form {
+.card-container {
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0 7vw;
+  justify-content: space-between;
+  align-items: center;
 }
-form input {
+
+.content-card {
+  width: 21vw;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.content-card img,
+.content-card video {
   width: 100%;
-  height: 68px;
-  border: none;
+  height: 85%;
+  object-fit: cover;
   border-radius: 5px;
 }
-form div {
+.content-card .header-wrapper {
+  height: 15%;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
+  align-items: center;
 }
-form label {
-  color: #312e2e;
-  font-size: 36px;
+.content-card .header-wrapper .content-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.content-card .header-wrapper .content-header img {
+  width: 18px;
+  height: 18px;
+  color: #901c1c;
+}
+.content-card .header-wrapper .content-header p {
+  font-size: 24px;
+  color: #901c1c;
+}
+.content-card .header-wrapper .content-header .likes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.likes-div {
+  position: fixed;
+  width: 21vw;
+  height: 7vh;
+  background-color: #db8876;
+  bottom: 0;
+  right: 3vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+.likes-div p {
+  color: black;
+  font-size: 24px;
+}
+.likes-div .likes-counter {
+  display: flex;
+}
+.likes-div .likes-counter img {
+  margin-left: 5px;
+  color: black;
+}
+
+#carousel-container {
+  width: 80vw;
+  height: 90vh;
+  background-color: white;
+}
+#carousel-container ul {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+#carousel-container ul li {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#carousel-container ul li img {
+  height: 1000px;
+  object-fit: cover;
+}
+#carousel-container ul li video {
+  width: 90%;
+  height: 90%;
+}
+#carousel-container .arrow {
+  position: absolute;
+  top: 45vh;
+  cursor: pointer;
+}
+#carousel-container #left-arrow {
+  left: 10vw;
+}
+#carousel-container #right-arrow {
+  left: 83vw;
+}
+#carousel-container #close-carousel {
+  position: absolute;
+  top: 5vh;
+  left: 85vw;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2vh;
+}
+.dropdown .dropdown-button {
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 12vw;
+  height: 7vh;
+}
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+}
+.dropdown .dropdown-content .dropdown-item {
+  cursor: pointer;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
