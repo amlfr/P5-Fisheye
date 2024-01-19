@@ -111,7 +111,7 @@ dialog {
   font-size: 64px;
   color: black;
   margin: 0px;
-  width: 60%;
+  width: 70%;
 }
 #contact-container #header-wrapper-contact img {
   flex: 0;
@@ -240,7 +240,7 @@ header h2 {
 #carousel-container {
   width: 80vw;
   height: 90vh;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 #carousel-container ul {
   width: 100%;
@@ -257,13 +257,10 @@ header h2 {
   justify-content: center;
   align-items: center;
 }
-#carousel-container ul li img {
-  height: 1000px;
-  object-fit: cover;
-}
+#carousel-container ul li img,
 #carousel-container ul li video {
-  width: 90%;
-  height: 90%;
+  height: 76vh;
+  object-fit: cover;
 }
 #carousel-container .arrow {
   position: absolute;

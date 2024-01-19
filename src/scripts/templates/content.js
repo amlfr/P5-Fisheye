@@ -1,4 +1,4 @@
-function contentTemplate(media, name, processFn, index) {
+function contentTemplate(media, name, processFn, index, photographerMedias) {
     function getContentCard() {
         const cardWrapper = document.createElement("div");
         cardWrapper.classList.add("content-card");
@@ -38,9 +38,15 @@ function contentTemplate(media, name, processFn, index) {
 
         const likesDiv = document.createElement("div");
         likesDiv.classList.add("likes-container");
+        likesDiv.setAttribute("tabIndex", 0);
+        likesDiv.setAttribute(
+            "onClick",
+            `handleLikeClick(${index}, ${photographerMedias[index]._likes}, event)`
+        );
 
         const likes = document.createElement("p");
         likes.classList.add("likes-number");
+        likes.setAttribute("id", `likes-${index}`);
         likes.textContent = media._likes;
         likesDiv.appendChild(likes);
 
@@ -60,6 +66,7 @@ function contentTemplate(media, name, processFn, index) {
         const processedName = processFn(name);
         if (media._image) {
             content = document.createElement("img");
+            content.setAttribute("tabindex", "-1");
             content.setAttribute(
                 "src",
                 `../../assets/content/${processedName}/${media._image}`
@@ -67,7 +74,7 @@ function contentTemplate(media, name, processFn, index) {
             content.setAttribute("alt", media._title);
         } else if (media._video) {
             content = document.createElement("video");
-
+            content.setAttribute("tabindex", "-1");
             content.setAttribute(
                 "src",
                 `../../assets/content/${processedName}/${media._video}`

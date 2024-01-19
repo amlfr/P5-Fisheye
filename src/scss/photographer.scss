@@ -120,7 +120,7 @@ dialog {
             font-size: 64px;
             color: black;
             margin: 0px;
-            width: 60%;
+            width: 70%;
         }
 
         img {
@@ -267,7 +267,7 @@ header {
 #carousel-container {
     width: 80vw;
     height: 90vh;
-    background-color: white;
+    background-color: rgb(255, 255, 255, 0);
 
     ul {
         width: 100%;
@@ -284,14 +284,10 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-            img {
-                height: 1000px;
-                object-fit: cover;
-            }
-
+            img,
             video {
-                width: 90%;
-                height: 90%;
+                height: 76vh;
+                object-fit: cover;
             }
         }
     }

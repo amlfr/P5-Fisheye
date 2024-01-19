@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/global.css" rel="stylesheet" type="text/css" />
         <link href="../css/photographer.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
         <link rel="icon" type="image/png" href="../../assets/favicon.png" />
@@ -33,17 +34,24 @@
             <div class="dropdown-div">
                 <label>Trier Par</label>
                 <div class="dropdown">
-                    <button class="dropdown-button" onclick="popularitySort()">
-                        Popularité
+                    <button class="dropdown-button" onclick="dateSort()">
+                        Date
                     </button>
                     <div class="dropdown-content">
-                        <button class="dropdown-button">Date</button
-                        ><button class="dropdown-button">Titre</button>
+                        <button
+                            class="dropdown-button"
+                            onclick="popularitySort()"
+                        >
+                            Popularité
+                        </button>
+                        <button class="dropdown-button" onclick="titleSort()">
+                            Titre
+                        </button>
                     </div>
                 </div>
             </div>
             <section class="card-container"></section>
-            <dialog id="carousel-modal">
+            <dialog id="carousel-modal" role="dialog" aria-hidden="true">
                 <div class="carousel-modal-wrapper">
                     <section id="carousel-container">
                         <img
@@ -79,7 +87,77 @@
                     <p id="price"></p>
                 </div>
             </div>
-            <dialog id="contact-modal" />
+            <dialog id="contact-modal" role="dialog">
+                <div class="flex-modal-wrapper">
+                    <section
+                        id="contact-container"
+                        aria-labelledby="contact-heading"
+                    >
+                        <div id="header-wrapper-contact">
+                            <h1 id="contact-heading">Contactez-moi<br /></h1>
+                            <img
+                                src="../../assets/icons/close.svg"
+                                aria-label="Close Contact form"
+                                tabindex="3"
+                                onclick="closeContactModal()"
+                            />
+                        </div>
+                        <form id="contact-form">
+                            <label for="firstName" id="firstName-label"
+                                >Prénom</label
+                            >
+                            <input
+                                type="text"
+                                name="firstName"
+                                placeholder="Prénom"
+                                aria-label="First Name"
+                                aria-labelledby="firstName-label"
+                                tabindex="1"
+                                id="firstName"
+                            />
+                            <label for="lastName" aria-labe="lastName-label"
+                                >Nom</label
+                            >
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Nom"
+                                tabindex="1"
+                                aria-label="Last Name"
+                                aria-labelledby="lastName-label"
+                            />
+                            <label for="email" id="email-label">Nom</label>
+                            <input
+                                type="text"
+                                name="email"
+                                placeholder="exemple@domain.com"
+                                tabindex="1"
+                                aria-label="Email"
+                                aria-labelledby="email-label"
+                            />
+                            <label for="message" id="message-label"
+                                >Votre message</label
+                            >
+                            <textarea
+                                type="text"
+                                name="message"
+                                placeholder="Votre message..."
+                                id="message-input"
+                                tabindex="1"
+                                aria-label="Your Message"
+                                aria-labelledby="message-label"
+                            ></textarea>
+                            <input
+                                type="submit"
+                                value="Submit"
+                                class="submit"
+                                aria-label="Send"
+                                tabindex="1"
+                            />
+                        </form>
+                    </section>
+                </div>
+            </dialog>
         </main>
 
         <script src="/src/scripts/factories/MediasFactory.js"></script>
@@ -93,5 +171,6 @@
         <script src="/src/scripts/utils/contactForm.js"></script>
         <script src="/src/scripts/utils/contentModal.js" defer></script>
         <script src="/src/scripts/utils/sort.js"></script>
+        <script src="/src/scripts/utils/likes.js"></script>
     </body>
 </html>

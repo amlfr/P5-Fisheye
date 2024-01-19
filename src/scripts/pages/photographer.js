@@ -1,5 +1,6 @@
 let carouselIndex = 0;
 let carouselSlides = [];
+let currentOrderMedias = [];
 
 //Gets the data on one photographers and its medias
 const getPhotographerMedias = async (id) => {
@@ -30,8 +31,9 @@ const init = async () => {
     const id = parseInt(params.get("id"));
     const { photographerProfile, photographerMedias } =
         await getPhotographerMedias(id);
+    currentOrderMedias = photographerMedias;
 
-    //Fetches the photographer's picture and
+    //Fetches the photographer's picture and it's profile html section
     const photographerModel = photographerTemplate(photographerProfile);
     const { userPicture, profile } = photographerModel.getUserHeaderComponent();
     const setLikeDiv = photographerModel.setLikeDiv;
@@ -43,29 +45,43 @@ const init = async () => {
 
     const cardContainer = document.querySelector(".card-container");
 
-    photographerMedias.forEach((media) => {
+    photographerMedias.forEach((media, index) => {
         contentModel = contentTemplate(
             media,
             photographerProfile.name,
-            processFn
+            processFn,
+            index,
+            photographerMedias
         );
+
         const { cardWrapper } = contentModel.getContentCard();
         cardContainer.appendChild(cardWrapper);
     });
 
     setLikeDiv();
 
-    //Generate the contact modal // TODO MAKE IT HARDCODED U DUMMY
-    const contactModel = contactTemplate(photographerProfile.name);
-    const { flexWrapper } = contactModel.getContactModal();
-    const contactDialog = document.querySelector("#contact-modal");
-    contactDialog.appendChild(flexWrapper);
+    //Sets the variables on the contact modal
+    const contactContainer = document.querySelector("#contact-container");
+    contactContainer.setAttribute(
+        "aria-label",
+        `Contact me ${photographerProfile.name}`
+    );
+    createSubmitListener();
+
+    const contactTitle = document.querySelector("#contact-heading");
+    contactTitle.textContent =
+        contactTitle.textContent + " " + photographerProfile.name;
 
     createCarouselListeners();
 
     //Iterates over the medias to create the carousel list elements
     const carouselList = document.querySelector(".carousel-list");
     photographerMedias.forEach((media) => {
+        contentModel = contentTemplate(
+            media,
+            photographerProfile.name,
+            processFn
+        );
         const { contentElement } = contentModel.getCarouselContent();
         carouselList.appendChild(contentElement);
     });

@@ -66,6 +66,7 @@ function photographerTemplate(data) {
         return processedName;
     }
 
+    //TODO MOVE TO UTILS > LIKES
     function setLikeDiv() {
         const likesNumbers = document.querySelectorAll(".likes-number");
 
