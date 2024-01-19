@@ -1,6 +1,6 @@
 //Fetches and returns the data of all photographers
 async function getPhotographers() {
-    const response = await fetch("../../assets/data/photographers.json");
+    const response = await fetch("P5-Fisheye/assets/data/photographers.json");
     const data = await response.json();
 
     const photographers = data.photographers;
