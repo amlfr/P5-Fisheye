@@ -6,7 +6,7 @@ function photographerTemplate(data) {
     function getUserCardDOM() {
         const article = document.createElement("article");
 
-        const photographerURL = `/src/html/photographer.html?id=${id}`;
+        const photographerURL = `src/html/photographer.html?id=${id}`;
         const link = document.createElement("a");
         link.setAttribute("href", photographerURL);
         link.setAttribute("aria-label", `${name}`);
@@ -37,7 +37,7 @@ function photographerTemplate(data) {
     }
 
     function getUserHeaderComponent() {
-        const profilePicture = `../../assets/photographers/${portrait}`;
+        const profilePicture = `assets/photographers/${portrait}`;
         const userHeader = document.querySelector(".photograph-header");
 
         const profile = document.createElement("div");
