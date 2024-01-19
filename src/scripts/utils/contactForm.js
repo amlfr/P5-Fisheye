@@ -8,19 +8,19 @@ const displayContactModal = () => {
 
 const closeContactModal = () => {
     modal.close();
-    //reset form
+    resetForm();
 };
+const contactForm = document.getElementById("contact-form");
 
 const createSubmitListener = () => {
-    document
-        .getElementById("contact-form")
-        .addEventListener("submit", (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            console.log(formData);
-            //reset form
-            closeContactModal();
-        });
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        console.log(formData);
+        closeContactModal();
+    });
 };
 
-const resetForm = () => {};
+const resetForm = () => {
+    contactForm.reset();
+};

@@ -60,6 +60,7 @@
                             class="arrow"
                             id="left-arrow"
                             tabindex="1"
+                            alt="Previous Image"
                         />
                         <img
                             src="../../assets/icons/right-arrow.svg"
@@ -67,11 +68,12 @@
                             class="arrow"
                             id="right-arrow"
                             tabindex="1"
+                            alt="Next Image"
                         />
                         <ul class="carousel-list"></ul>
                         <img
                             src="../../assets/icons/close-primary.svg"
-                            alt=""
+                            alt="Close icon"
                             id="close-carousel"
                             tabindex="1"
                         />
@@ -96,6 +98,7 @@
                         <div id="header-wrapper-contact">
                             <h1 id="contact-heading">Contactez-moi<br /></h1>
                             <img
+                                id="close-contact-modal"
                                 src="../../assets/icons/close.svg"
                                 aria-label="Close Contact form"
                                 tabindex="3"
@@ -115,7 +118,7 @@
                                 tabindex="1"
                                 id="firstName"
                             />
-                            <label for="lastName" aria-labe="lastName-label"
+                            <label for="lastName" id="lastName-label"
                                 >Nom</label
                             >
                             <input
@@ -126,7 +129,7 @@
                                 aria-label="Last Name"
                                 aria-labelledby="lastName-label"
                             />
-                            <label for="email" id="email-label">Nom</label>
+                            <label for="email" id="email-label">Email</label>
                             <input
                                 type="text"
                                 name="email"
@@ -172,5 +175,6 @@
         <script src="../../src/scripts/utils/contentModal.js" defer></script>
         <script src="../../src/scripts/utils/sort.js"></script>
         <script src="../../src/scripts/utils/likes.js"></script>
+        <script src="../../src/scripts/utils/keyboardEvents.js"></script>
     </body>
 </html>

@@ -69,14 +69,24 @@ button,
     label {
         font-weight: bold;
     }
-
-    select,
-    select option {
-        background-color: #901c1c;
-        color: white;
-        width: 11.798vw;
-        height: 7vh;
-        border-radius: 5px;
+    .dropdown {
+        button {
+            display: flex;
+            align-items: center;
+            border-radius: 5px 5px 0px 0px;
+        }
+        .dropdown-content {
+            button:first-of-type {
+                border-top: 1px solid white;
+                border-bottom: 1px solid white;
+            }
+            button {
+                border-radius: 0;
+            }
+            button:last-of-type {
+                border-radius: 0px 0px 5px 5px;
+            }
+        }
     }
 }
 
@@ -188,9 +198,9 @@ header {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 7vw;
-    justify-content: space-between;
-    align-items: center;
+
+    column-gap: 7vw;
+    justify-content: flex-start;
 }
 
 .content-card {

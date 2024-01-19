@@ -84,3 +84,5 @@ const refreshCarousel = (photographerMedias, photographerProfile) => {
         console.log(carouselSlides[key].firstChild, "afterRefresh")
     );
 };
+
+const updateDropdown = () => {};

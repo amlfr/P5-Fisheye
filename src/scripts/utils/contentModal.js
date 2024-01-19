@@ -3,8 +3,6 @@ let newOrderSlides;
 function displayContentModal(index) {
     const carouselList = document.querySelector(".carousel-list");
     carouselList.innerHTML = "";
-    console.log(carouselList);
-    console.log(index, "personal index");
 
     newOrderSlides = reorderCarousel(index, carouselSlides);
     newOrderSlides.forEach((slide) => carouselList.appendChild(slide));
@@ -24,16 +22,21 @@ function closeContentModal() {
 
 const createCarouselListeners = () => {
     const contentCards = document.querySelectorAll(".content-card");
+
     contentCards.forEach((card, index) => {
         card.addEventListener("click", () => {
-            displayContentModal(index);
+            cardEvent(index);
         });
+        addKeyboardFocusEvent(contentCards[index], () =>
+            displayContentModal(index)
+        );
     });
 
     const closeCarouselBtn = document.querySelector("#close-carousel");
     closeCarouselBtn.addEventListener("click", () => {
         closeContentModal();
     });
+    addKeyboardFocusEvent(closeCarouselBtn, () => closeContentModal());
 
     const previousContentBtn = document.querySelector("#left-arrow");
     previousContentBtn.addEventListener("click", () => {

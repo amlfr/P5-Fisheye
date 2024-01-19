@@ -63,13 +63,20 @@ button:hover, button:focus,
 .dropdown-div label {
   font-weight: bold;
 }
-.dropdown-div select,
-.dropdown-div select option {
-  background-color: #901c1c;
-  color: white;
-  width: 11.798vw;
-  height: 7vh;
-  border-radius: 5px;
+.dropdown-div .dropdown button {
+  display: flex;
+  align-items: center;
+  border-radius: 5px 5px 0px 0px;
+}
+.dropdown-div .dropdown .dropdown-content button:first-of-type {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.dropdown-div .dropdown .dropdown-content button {
+  border-radius: 0;
+}
+.dropdown-div .dropdown .dropdown-content button:last-of-type {
+  border-radius: 0px 0px 5px 5px;
 }
 
 dialog {
@@ -166,9 +173,8 @@ header h2 {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 7vw;
-  justify-content: space-between;
-  align-items: center;
+  column-gap: 7vw;
+  justify-content: flex-start;
 }
 
 .content-card {
