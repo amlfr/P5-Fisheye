@@ -4,7 +4,7 @@ let currentOrderMedias = [];
 
 //Gets the data on one photographers and its medias
 const getPhotographerMedias = async (id) => {
-    const response = await fetch("/assets/data/photographers.json");
+    const response = await fetch("assets/data/photographers.json");
     const data = await response.json();
     const photographers = data.photographers;
 
