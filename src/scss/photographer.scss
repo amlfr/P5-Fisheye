@@ -136,6 +136,7 @@ dialog {
         img {
             flex: 0;
             margin-top: 2vh;
+            cursor: pointer;
         }
     }
 
@@ -154,6 +155,7 @@ dialog {
             width: 100%;
             height: 7vh;
             border-radius: 5px;
+            font-size: 36px;
 
             &::placeholder {
                 font-size: 36px;
@@ -162,7 +164,7 @@ dialog {
 
         #message-input {
             height: 16vh;
-
+            font-size: 36px;
             &::placeholder {
                 font-size: 36px;
             }

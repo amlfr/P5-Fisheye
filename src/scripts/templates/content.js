@@ -43,6 +43,9 @@ function contentTemplate(media, name, processFn, index, photographerMedias) {
             "onClick",
             `handleLikeClick(${index}, ${photographerMedias[index]._likes}, event)`
         );
+        addKeyboardFocusEvent(likesDiv, () => {
+            handleLikeClick(index, photographerMedias[index]._likes, event);
+        });
 
         const likes = document.createElement("p");
         likes.classList.add("likes-number");

@@ -25,7 +25,7 @@ const createCarouselListeners = () => {
 
     contentCards.forEach((card, index) => {
         card.addEventListener("click", () => {
-            cardEvent(index);
+            displayContentModal(index);
         });
         addKeyboardFocusEvent(contentCards[index], () =>
             displayContentModal(index)
@@ -39,7 +39,7 @@ const createCarouselListeners = () => {
     addKeyboardFocusEvent(closeCarouselBtn, () => closeContentModal());
 
     const previousContentBtn = document.querySelector("#left-arrow");
-    previousContentBtn.addEventListener("click", () => {
+    const showPreviousContent = () => {
         if (carouselIndex > 0) {
             carouselIndex -= 1;
         } else {
@@ -55,9 +55,68 @@ const createCarouselListeners = () => {
             block: "nearest",
             inline: "center",
         });
-    });
+    };
+
+    previousContentBtn.addEventListener("click", () => showPreviousContent());
+    addKeyboardFocusEvent(previousContentBtn, () => showPreviousContent());
+
+    /*  previousContentBtn.addEventListener("click", () => {
+        if (carouselIndex > 0) {
+            carouselIndex -= 1;
+        } else {
+            carouselIndex = carouselSlides.length - 1;
+        }
+
+        carouselSlides.forEach((_, key) =>
+            console.log(carouselSlides[key].firstChild, "nextBtnOrder")
+        );
+
+        newOrderSlides[carouselIndex].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+        });
+    }); */
 
     const nextContentBtn = document.querySelector("#right-arrow");
+    const showNextContent = () => {
+        console.log(carouselIndex, "before");
+        if (carouselIndex >= carouselSlides.length - 1) {
+            carouselIndex = 0;
+        } else {
+            carouselIndex += 1;
+        }
+
+        console.log(carouselIndex, "after");
+        newOrderSlides[carouselIndex].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+        });
+    };
+
+    nextContentBtn.addEventListener("click", () => {
+        showNextContent();
+    });
+    addKeyboardFocusEvent(nextContentBtn, () => showNextContent());
+
+    const carousel = document.getElementById("carousel-modal");
+    carousel.addEventListener("keydown", (event) => {
+        addCarouselArrowListeners(
+            event,
+            () => showPreviousContent(),
+            () => showNextContent()
+        );
+    });
+
+    /* 
+    previousContentBtn.addEventListener("keydown", (event) => {
+        console.log(event);
+        addCarouselArrowListeners(event, () => showPreviousContent());
+    });
+    addKeyboardFocusEvent(previousContentBtn, () => showPreviousContent());
+    
+    
     nextContentBtn.addEventListener("click", () => {
         console.log(carouselIndex, "before");
         if (carouselIndex >= carouselSlides.length - 1) {
@@ -72,7 +131,7 @@ const createCarouselListeners = () => {
             block: "nearest",
             inline: "center",
         });
-    });
+    }); */
 };
 
 const reorderCarousel = (index, medias) => {
