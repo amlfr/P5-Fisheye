@@ -29,6 +29,7 @@ const titleSort = async () => {
     refreshCarousel(photographerMedias, photographerProfile);
 };
 
+//Provides necessary data to each sort data
 const initializeSort = async () => {
     const currentNodes = document.querySelectorAll(".content-card");
     const params = new URL(document.location).searchParams;
@@ -39,6 +40,7 @@ const initializeSort = async () => {
     return { photographerProfile, photographerMedias };
 };
 
+//Fetches new or
 const refreshCards = (photographerMedias, photographerProfile) => {
     const cardContainer = document.querySelector(".card-container");
     cardContainer.innerHTML = "";
@@ -64,6 +66,7 @@ const refreshCards = (photographerMedias, photographerProfile) => {
     carouselSlides = document.querySelectorAll("ul > li");
 };
 
+//Updates the
 const refreshCarousel = (photographerMedias, photographerProfile) => {
     const carouselList = document.querySelector(".carousel-list");
     carouselList.innerHTML = "";
@@ -84,5 +87,3 @@ const refreshCarousel = (photographerMedias, photographerProfile) => {
         console.log(carouselSlides[key].firstChild, "afterRefresh")
     );
 };
-
-const updateDropdown = () => {};

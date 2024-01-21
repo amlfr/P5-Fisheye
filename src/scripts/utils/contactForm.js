@@ -10,9 +10,8 @@ const displayContactModal = () => {
 };
 
 const closeContactModal = () => {
-    resetForm();
+    contactForm.reset();
     modal.close();
-    modal.setAttribute("open", false);
 };
 
 const contactForm = document.getElementById("contact-form");
@@ -24,8 +23,4 @@ const createSubmitListener = () => {
         console.log(formData);
         closeContactModal();
     });
-};
-
-const resetForm = () => {
-    contactForm.reset();
 };

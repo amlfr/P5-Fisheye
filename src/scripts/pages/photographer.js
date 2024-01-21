@@ -75,7 +75,6 @@ const init = async () => {
     const closeContactBtn = document.querySelector("#close-contact-modal");
 
     addKeyboardFocusEvent(closeContactBtn, () => closeContactModal());
-
     createCarouselListeners();
 
     //Iterates over the medias to create the carousel list elements

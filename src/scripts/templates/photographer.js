@@ -3,6 +3,7 @@ function photographerTemplate(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
+    //Returns the individual photographer cards used in the home page
     function getUserCardDOM() {
         const article = document.createElement("article");
 
@@ -36,6 +37,7 @@ function photographerTemplate(data) {
         return article;
     }
 
+    //Returns the individual elements using personnal photographer information used on their page's headers
     function getUserHeaderComponent() {
         const profilePicture = `../../assets/photographers/${portrait}`;
         const userHeader = document.querySelector(".photograph-header");
@@ -59,6 +61,7 @@ function photographerTemplate(data) {
         return { userPicture, profile };
     }
 
+    //Function processing names to be using in image fetching functions
     function processFirstName(fullName) {
         const firstName = fullName.match(/^[a-zA-Z-]+/);
         const processedName = firstName[0].replace("-", " ");
@@ -66,7 +69,7 @@ function photographerTemplate(data) {
         return processedName;
     }
 
-    //TODO MOVE TO UTILS > LIKES
+    //Function initializing the global like counter on the photographer's pages with their prices.
     function setLikeDiv() {
         const likesNumbers = document.querySelectorAll(".likes-number");
 
@@ -97,6 +100,7 @@ function photographerTemplate(data) {
     };
 }
 
+//Used to set up a text element with the correct classname and returns the dom element
 const createText = (content, className) => {
     const p = document.createElement("p");
     p.textContent = content;

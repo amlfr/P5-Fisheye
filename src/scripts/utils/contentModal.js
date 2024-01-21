@@ -1,5 +1,7 @@
+//Contains the carousel slides in the order they'll be appended to the
 let newOrderSlides;
 
+//Opens up the carousel after changing the actual slides order
 function displayContentModal(index) {
     const carouselList = document.querySelector(".carousel-list");
     carouselList.innerHTML = "";
@@ -10,6 +12,7 @@ function displayContentModal(index) {
     modal.showModal();
 }
 
+//Closes the carousel after cleaning the list of its html elements
 function closeContentModal() {
     const modal = document.getElementById("carousel-modal");
     carouselIndex = 0;
@@ -20,6 +23,7 @@ function closeContentModal() {
     modal.close();
 }
 
+//
 const createCarouselListeners = () => {
     const contentCards = document.querySelectorAll(".content-card");
 
@@ -60,24 +64,6 @@ const createCarouselListeners = () => {
     previousContentBtn.addEventListener("click", () => showPreviousContent());
     addKeyboardFocusEvent(previousContentBtn, () => showPreviousContent());
 
-    /*  previousContentBtn.addEventListener("click", () => {
-        if (carouselIndex > 0) {
-            carouselIndex -= 1;
-        } else {
-            carouselIndex = carouselSlides.length - 1;
-        }
-
-        carouselSlides.forEach((_, key) =>
-            console.log(carouselSlides[key].firstChild, "nextBtnOrder")
-        );
-
-        newOrderSlides[carouselIndex].scrollIntoView({
-            behavior: "smooth",
-            block: "nearest",
-            inline: "center",
-        });
-    }); */
-
     const nextContentBtn = document.querySelector("#right-arrow");
     const showNextContent = () => {
         console.log(carouselIndex, "before");
@@ -108,32 +94,9 @@ const createCarouselListeners = () => {
             () => showNextContent()
         );
     });
-
-    /* 
-    previousContentBtn.addEventListener("keydown", (event) => {
-        console.log(event);
-        addCarouselArrowListeners(event, () => showPreviousContent());
-    });
-    addKeyboardFocusEvent(previousContentBtn, () => showPreviousContent());
-    
-    
-    nextContentBtn.addEventListener("click", () => {
-        console.log(carouselIndex, "before");
-        if (carouselIndex >= carouselSlides.length - 1) {
-            carouselIndex = 0;
-        } else {
-            carouselIndex += 1;
-        }
-
-        console.log(carouselIndex, "after");
-        newOrderSlides[carouselIndex].scrollIntoView({
-            behavior: "smooth",
-            block: "nearest",
-            inline: "center",
-        });
-    }); */
 };
 
+//Takes in the index of the card and the carousel slides in order and return an array in the same order with index 0 being the card index
 const reorderCarousel = (index, medias) => {
     const newArray = [];
 

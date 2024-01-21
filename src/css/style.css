@@ -1,23 +1,9 @@
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 90px;
-}
-
 h1 {
   color: #901c1c;
   margin-right: 5.2vw;
   margin-top: 4.6vh;
   font-size: 36px;
   font-weight: 400;
-}
-
-.logo {
-  height: 50px;
-  margin-left: 5.2vw;
-  margin-top: 4.6vh;
 }
 
 .photographer_section {

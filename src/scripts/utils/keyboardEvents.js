@@ -1,3 +1,4 @@
+//Takes a html target and a callback to fire when the element is focused by the user and the enter key is pressed.
 const addKeyboardFocusEvent = (target, clickFn) => {
     target.addEventListener("keydown", (event) => {
         const currentFocus = document.activeElement;
@@ -10,6 +11,7 @@ const addKeyboardFocusEvent = (target, clickFn) => {
     });
 };
 
+//Creates the event listeners handling the carousel navigation with keyboard arrows
 const addCarouselArrowListeners = (
     event,
     carouselFnPrevious,
@@ -19,10 +21,8 @@ const addCarouselArrowListeners = (
     if (carousel.open) {
         if (event.key === "ArrowRight") {
             carouselFnNext();
-            console.log("right");
         } else if (event.key === "ArrowLeft") {
             carouselFnPrevious();
-            console.log("left");
         }
     }
 };

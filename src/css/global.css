@@ -1,4 +1,19 @@
 * {
   font-family: "DM Sans", sans-serif;
   margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+.logo {
+  height: 50px;
+  margin-left: 5.2vw;
+  margin-top: 4.6vh;
 }
