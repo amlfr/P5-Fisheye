@@ -122,7 +122,7 @@ dialog:modal {
   font-size: 64px;
   color: black;
   margin: 0px;
-  width: 70%;
+  width: 80%;
 }
 #contact-container #header-wrapper-contact img {
   flex: 0;
@@ -133,7 +133,7 @@ dialog:modal {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 3vh;
+  margin-top: 2vh;
 }
 #contact-container form label {
   color: #312e2e;
@@ -149,7 +149,7 @@ dialog:modal {
   font-size: 36px;
 }
 #contact-container form #message {
-  height: 16vh;
+  height: 14vh;
   font-size: 36px;
 }
 #contact-container form #message::placeholder {

@@ -2,11 +2,9 @@
 const addKeyboardFocusEvent = (target, clickFn) => {
     target.addEventListener("keydown", (event) => {
         const currentFocus = document.activeElement;
-        //console.log(currentFocus);
+
         if (event.key === "Enter" && target === currentFocus) {
             clickFn();
-            console.log(`Target is ${target}`, target);
-            console.log(`fn is ${clickFn}`, clickFn);
         }
     });
 };

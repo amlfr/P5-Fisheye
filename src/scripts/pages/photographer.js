@@ -90,6 +90,7 @@ const init = async () => {
     });
 
     carouselSlides = document.querySelectorAll("ul > li");
+    popularitySort();
 };
 
 init();

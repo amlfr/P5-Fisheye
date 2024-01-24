@@ -135,7 +135,7 @@ dialog {
             font-size: 64px;
             color: black;
             margin: 0px;
-            width: 70%;
+            width: 80%;
         }
 
         img {
@@ -149,7 +149,7 @@ dialog {
         display: flex;
         flex-direction: column;
         width: 100%;
-        margin-top: 3vh;
+        margin-top: 2vh;
 
         label {
             color: #312e2e;
@@ -168,7 +168,7 @@ dialog {
         }
 
         #message {
-            height: 16vh;
+            height: 14vh;
             font-size: 36px;
             &::placeholder {
                 font-size: 36px;

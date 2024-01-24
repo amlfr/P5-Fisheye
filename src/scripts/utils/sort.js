@@ -83,7 +83,4 @@ const refreshCarousel = (photographerMedias, photographerProfile) => {
     });
 
     carouselSlides = document.querySelectorAll("ul > li");
-    carouselSlides.forEach((_, key) =>
-        console.log(carouselSlides[key].firstChild, "afterRefresh")
-    );
 };

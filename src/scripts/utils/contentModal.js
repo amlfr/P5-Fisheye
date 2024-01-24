@@ -50,12 +50,8 @@ const createCarouselListeners = () => {
             carouselIndex = carouselSlides.length - 1;
         }
 
-        carouselSlides.forEach((_, key) =>
-            console.log(carouselSlides[key].firstChild, "nextBtnOrder")
-        );
-
         newOrderSlides[carouselIndex].scrollIntoView({
-            behavior: "smooth",
+            behavior: "instant",
             block: "nearest",
             inline: "center",
         });
@@ -66,16 +62,14 @@ const createCarouselListeners = () => {
 
     const nextContentBtn = document.querySelector("#right-arrow");
     const showNextContent = () => {
-        console.log(carouselIndex, "before");
         if (carouselIndex >= carouselSlides.length - 1) {
             carouselIndex = 0;
         } else {
             carouselIndex += 1;
         }
 
-        console.log(carouselIndex, "after");
         newOrderSlides[carouselIndex].scrollIntoView({
-            behavior: "smooth",
+            behavior: "instant",
             block: "nearest",
             inline: "center",
         });
